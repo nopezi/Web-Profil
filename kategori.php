@@ -41,8 +41,9 @@ if (isset($_GET['kategori'])) {
 	$artikel = tampilkan_per_kategori($kategori);
 	$num_char = 200;
 	while($row = mysqli_fetch_assoc($artikel)) {
+	
  ?>		
-
+	
  		<div class="jumbotron" style="background:#fff;border:2px solid #26b7ff;margin-top:10px;margin-bottom:10px;">
  		<div class="media">
  			<h3 class="display-3"><a href="single.php?id_file=<?=$row['id_file']?>" title=""><?=$row['judul']?></a></h3>

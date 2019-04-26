@@ -8,7 +8,10 @@
                         <a href="home.php" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
                     <li>
-                        <a href="posting.php" class="waves-effect"><i class="glyphicon glyphicon-book"></i> Post</a>
+                        <a href="posting.php" class="waves-effect"><i class="glyphicon glyphicon-book"></i> Posting</a>
+                    </li>
+                    <li>
+                        <a href="kategori.php" class="waves-effect"><i class="glyphicon glyphicon-knight"></i> Kategori</a>
                     </li>
                     <li>
                         <a href="logout.php" class="waves-effect"><i class="glyphicon glyphicon-log-out"></i> Keluar</a>

@@ -33,7 +33,7 @@ $profil = tampilkan_profil();
             <h2 style="color: #26b7ff"><?=$row2['judul'] ?></h2>
             <img src="admin/file/<?=$row2['nama_file'] ?>" alt="" width="200" height="250" class="img-rounded" >
             <p style="color: #26b7ff" class="lead mb-5"><?=substr($row2['isi'], 0, $num_char2). '...'?></p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="#services">Show More</a>
+            <a class="btn btn-dark btn-xl js-scroll-trigger" href="kategori.php?kategori=Profil">Show More</a>
           <?php } ?>
           </div>
         </div>
