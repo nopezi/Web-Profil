@@ -1,0 +1,90 @@
+
+Warning: PHP Startup: Unable to load dynamic library 'C:\xampp\php\ext\php_mysql.dll' - The specified module could not be found.
+ in Unknown on line 0
+<?php
+require_once "core/init.php";
+$kategori = 'project';
+?>
+
+
+
+<?php require_once 'menu2.php'?>
+<!-- gambar atas -->
+
+
+
+<!-- bagian badan -->
+
+<div class="container-fluid">
+
+
+
+<div class="panel-body">
+
+
+
+
+		<div class="row">
+
+			<div class="col-md-9">
+
+			<!-- judul -->
+
+			 <div class="recent" style="background:skyblue">
+			 	<div class="terbaru" style="margin:5px 5px;color:white;font-size:18px">
+			 	<b>Aplikasi Yang pernah dibuat</b>
+			    </div>
+			 </div>
+
+			 <!-- kiri -->
+
+<?php
+$artikel  = tampilkan_per_kategori($kategori);
+$num_char = 200;
+while ($row = mysqli_fetch_assoc($artikel)) {
+	?>
+
+	 		<div class="jumbotron">
+	 			<h3 class="display-3"><a href="single.php?id_file=<?=$row['id_file']?>" title=""><?=$row['judul']?></a></h3>
+	 			<img class="thumbnail img-rounded img-responsive" width="400" src="admin/file/<?=$row['nama_file']?>" alt="">
+	 			<p class="lead"><?=substr($row['isi'], 0, $num_char).'...'?></p>
+	 			<hr class="m-y-md">
+	 			<p style="font-size: 15px"><i class="glyphicon glyphicon-tag"></i> <?=$row['kategori']?></p>
+	 		</div>
+
+
+	<?php }?>
+
+
+
+
+		</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+<!-- bagian kaki -->
+
+
+<div class="container-fluid">
+
+		<div class="panel-footer" style="margin-bottom:10px;background-color:skyblue">
+			<div class="text-center">
+				<p>&copy; p321</p>
+			</div>
+		</div>
+
+
+</div>
+
+
+</body>
+<script src="http://nopezi.ga/js/jquery.min.js"></script>
+<script src="http://nopezi.ga/js/bootstrap.min.js"></script>
+</html>
