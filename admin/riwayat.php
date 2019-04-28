@@ -85,7 +85,7 @@ $num_char = 100;
                                     <?=$d['kategori'] ?>
                                 </td>
                                 <td>
-                                    <a class="btn btn-warning" href="edit_riwayat.php?id_file=<?=$d['id']?>"><i class="glyphicon glyphicon-pencil"></i></a>
+                                    <a class="btn btn-warning" href="edit_riwayat.php?id=<?=$d['id']?>"><i class="glyphicon glyphicon-pencil"></i></a>
                                     <a class="btn btn-danger" href="function/delete_riwayat.php?id=<?=$d['id']?>"><i class="glyphicon glyphicon-trash"></i></a>
                                 </td>       
                             </tr>

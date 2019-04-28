@@ -27,13 +27,16 @@ if($_POST['upload']){
 
     if (empty($nama) || empty(trim($judul)) || empty(trim($isi)) || empty($kategori)) {
         $error = "Isi data yang lengkap";
-    }else {
+    }else if(strtolower($kategori) == "pilihan"){
+        $error = "Kategori masih kosong";
+    } else {
         if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
         if($ukuran < 104407000){			
             move_uploaded_file($file_tmp, 'file/'.$nama);
             $edit_posting = edit_posting($id_file, $nama, $judul, $isi, $kategori);
             if($edit_posting){
-                header("location: posting.php");            
+                // header("location: posting.php");
+                echo "<script>window.location.href='posting.php';</script>";            
             }else{
                 $error = "Gagal mengupload gambar";
             }

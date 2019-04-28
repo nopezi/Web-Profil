@@ -1,3 +1,10 @@
+<?php
+include '../blog/koneksi.php';
+require_once 'function/function.php';
+
+$tampil_profil = tampilkan_profil();
+
+?>
 <div class="navbar-default sidebar" role="navigation">
             <div class="sidebar-nav slimscrollsidebar">
                 <div class="sidebar-head">
@@ -7,6 +14,11 @@
                     <li style="padding: 70px 0 0;">
                         <a href="home.php" class="waves-effect"><i class="fa fa-clock-o fa-fw" aria-hidden="true"></i>Dashboard</a>
                     </li>
+                    <?php while($p = mysqli_fetch_assoc($tampil_profil)){?>    
+                    <li>
+                        <a href="profil.php?id=<?=$p['id']?>" class="waves-effect"><i class="glyphicon glyphicon-user"></i> Profil</a>
+                    </li>
+                    <?php } ?>
                     <li>
                         <a href="posting.php" class="waves-effect"><i class="glyphicon glyphicon-book"></i> Posting</a>
                     </li>

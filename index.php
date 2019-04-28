@@ -1,186 +1,295 @@
-<?php 
-require_once "core/init.php"; 
-require_once 'menu.php';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Nopezi Web Profile</title>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="" name="keywords">
+  <meta content="" name="description">
 
-$num_char = 200;
-$num_char2 = 400;
-$artikel = tampilkan();
-$profil = tampilkan_profil();
+  <!-- Favicons -->
+  <link href="gambar/logo.PNG" rel="icon">
+  <link href="theme/img/apple-touch-icon.png" rel="apple-touch-icon">
 
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Roboto:100,300,400,500,700|Philosopher:400,400i,700,700i" rel="stylesheet">
 
+  <!-- Bootstrap css -->
+  <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+  <!-- <link href="theme/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  
+  <!-- Libraries CSS Files -->
+  <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+  <!-- <link href="theme/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link rel="stylesheet" href="theme/css/style_progress.css">
+  
 
-?>
+  <link href="theme/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="theme/lib/owlcarousel/assets/owl.theme.default.min.css" rel="stylesheet">
+  <link href="theme/lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <link href="theme/lib/animate/animate.min.css" rel="stylesheet">
+  <link href="theme/lib/modal-video/css/modal-video.min.css" rel="stylesheet">
 
+  
+  <!-- Main Stylesheet File -->
+  <link href="theme/css/style.css" rel="stylesheet">
 
-    <!-- Header -->
-    <header class="masthead d-flex">
-      <div class="container text-center my-auto">
-        <h1 class="mb-1">Welcome</h1>
-        <h3 class="mb-5">
-          <em>P321 Portofolio</em>
-        </h3>
-        <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+  <!-- =======================================================
+    Theme Name: eStartup
+    Theme URL: https://bootstrapmade.com/estartup-bootstrap-landing-page-template/
+    Author: BootstrapMade.com
+    License: https://bootstrapmade.com/license/
+  ======================================================= -->
+</head>
+
+<body>
+
+  <?php require_once 'web/menu.php'; ?>
+  
+  <!-- #header -->
+
+  <!--==========================
+    Hero Section
+  ============================-->
+  <section id="hero" class="wow fadeIn">
+    <div class="hero-container">
+      <h1>Welcome to our website</h1>
+      <h2>this is my profile web &amp; more...</h2>
+      <img src="theme/img/hero-img.png" alt="Hero Imgs">
+      <!-- <a href="#get-started" class="btn-get-started scrollto">Get Started</a>
+      <div class="btns">
+        <a href="#"><i class="fa fa-apple fa-3x"></i> App Store</a>
+        <a href="#"><i class="fa fa-play fa-3x"></i> Google Play</a>
+        <a href="#"><i class="fa fa-windows fa-3x"></i> windows</a>
+      </div> -->
+    </div>
+  </section><!-- #hero -->
+
+  <!--==========================
+    Get Started Section
+  ============================-->
+  
+
+  <!--==========================
+    About Us Section
+  ============================-->
+  
+  <?php require_once 'web/about.php'; ?>
+
+  <!--==========================
+    Features Section
+  ============================-->
+
+  <section id="features" class="padd-section text-center wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Hystori</h2>
+        <p class="separator">My biography</p>
       </div>
-      <div class="overlay"></div>
-    </header>
+    </div>
 
-    <!-- About -->
-    <section class="content-section bg-light" id="about">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-lg-10 mx-auto">
-            <?php while ($row2 = mysqli_fetch_assoc($profil)){ ?>
-            <h2 style="color: #26b7ff"><?=$row2['judul'] ?></h2>
-            <img src="admin/file/<?=$row2['nama_file'] ?>" alt="" width="200" height="250" class="img-rounded" >
-            <p style="color: #26b7ff" class="lead mb-5"><?=substr($row2['isi'], 0, $num_char2). '...'?></p>
-            <a class="btn btn-dark btn-xl js-scroll-trigger" href="kategori.php?kategori=Profil">Show More</a>
-          <?php } ?>
-          </div>
-        </div>
+    <div class="container">
+      <div class="row row-table">
+
+<!-- RIWAYAT SEKOLAH -->
+        
+        <?php require_once 'web/riwayat_sekolah.php'; ?>
+
+<!-- RIWAYAT ORGANISASI -->
+
+        <?php require_once 'web/riwayat_organisasi.php'; ?>
+
       </div>
-    </section>
+    </div>
+  
 
+    <div class="container">
+      <div class="row row-table">
 
-    <!-- Services -->
-    <section class="content-section bg-primary text-white text-center" id="services">
-      <div class="container">
-        <div class="content-section-heading">
-          <h3 class="text-secondary mb-0">Junior Web Programming</h3>
-          <h2 class="mb-5">My Skill
-          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- nopezi.ga -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5943791676848690"
-     data-ad-slot="2121745973"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-          </h2>
-        </div>
-        <div class="row">
-          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <i class="icon-screen-smartphone"></i>
-            </span>
-            <h4>
-              <strong>HTML</strong>
-            </h4>
-            <!-- <p class="text-faded mb-0">Looks great on any screen size!</p> -->
-          </div>
-          <div class="col-lg-3 col-md-6 mb-5 mb-lg-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <i class="icon-pencil"></i>
-            </span>
-            <h4>
-              <strong>PHP</strong>
-            </h4>
-            <!-- <p class="text-faded mb-0">Freshly redesigned for Bootstrap 4.</p> -->
-          </div>
-          <div class="col-lg-3 col-md-6 mb-5 mb-md-0">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <i class="icon-like"></i>
-            </span>
-            <h4>
-              <strong>CSS</strong>
-            </h4>
-            <!-- <p class="text-faded mb-0">Millions of users
-              <i class="fas fa-heart"></i>
-              Start Bootstrap!</p> -->
-          </div>
-          <div class="col-lg-3 col-md-6">
-            <span class="service-icon rounded-circle mx-auto mb-3">
-              <i class="icon-mustache"></i>
-            </span>
-            <h4>
-              <strong>JAVASCRIPT</strong>
-            </h4>
-            <!-- <p class="text-faded mb-0">I mustache you a question...</p> -->
-          </div>
-        </div>
+<!-- RIWAYAT PRESTASI -->
+
+        <?php require_once 'web/riwayat_prestasi.php'; ?>
+
+<!-- RIWAYAT PEKERJAAN -->
+
+        <?php require_once 'web/riwayat_pekerjaan.php'; ?>
+        
+
       </div>
-    </section>
+    </div>
 
-
-<!-- Portfolio ------------------------------------------------>
-
-
-    <section class="content-section" id="portfolio">
-      <div class="container">
-        <div class="content-section-heading text-center">
-          <h3 class="text-secondary mb-0">Portfolio</h3>
-          <h2 style="color: #26b7ff" class="mb-5">Recent Projects</h2>
-        </div>
-        <div class="row no-gutters">
-<?php while ($row = mysqli_fetch_assoc($artikel)) { ?>          
-          <div class="col-lg-6">
-            <h2><?=$row['judul']?></h2>
-            <a class="portfolio-item" href="single.php?id_file=<?=$row['id_file']?>">
-              <span class="caption">
-                <span class="caption-content">
-                  
-                  <p class="mb-0"><?=substr($row['isi'], 0, $num_char). '...'?></p>
-                </span>
-              </span>
-              <img class="img-fluid" src="admin/file/<?=$row['nama_file']?>" alt="">
-            </a>
-          </div>
-<?php } ?>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- Callout -->
-   <!--  <section class="callout">
-      <div class="container text-center">
-        <h2 class="mx-auto mb-5">Welcome to
-          <em>your</em>
-          next website!</h2>
-        <a class="btn btn-primary btn-xl" href="https://startbootstrap.com/template-overviews/stylish-portfolio/">Download Now!</a>
-      </div>
-    </section> -->
-
-
-    <!-- Call to Action -->
-    <section class="content-section bg-primary text-white">
-      <div class="container text-center">
-        <h2 class="mb-4">The buttons below are impossible to resist...</h2>
-        <a href="#" class="btn btn-xl btn-light mr-4">Click Me!</a>
-        <a href="#" class="btn btn-xl btn-dark">Look at Me!</a>
-      </div>
-    </section>
-
-    <!-- Map -->
-    <section id="contact" class="map">
-      <iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508.56130377612874!2d110.37253407546211!3d-7.824874544396953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57a5d92b35f7%3A0x59679715d5b949b6!2zN8KwNDknMzAuMCJTIDExMMKwMjInMjAuNiJF!5e0!3m2!1sid!2sid!4v1534581482530&amp;output=embed"></iframe>
-      <br/>
-      <small>
-        <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d508.56130377612874!2d110.37253407546211!3d-7.824874544396953!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a57a5d92b35f7%3A0x59679715d5b949b6!2zN8KwNDknMzAuMCJTIDExMMKwMjInMjAuNiJF!5e0!3m2!1sid!2sid!4v1534581482530"></a>
-      </small>
-    </section>
-
-    <!-- Footer -->
     
-    <?php require_once 'footer.php'; ?>
+  </section>
+  
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded js-scroll-trigger" href="#page-top">
-      <i class="fas fa-angle-up"></i>
-    </a>
+  <!--==========================
+    Team Section
+  ============================-->
+  
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+  <!--==========================
+    Testimonials Section
+  ============================-->
 
-    <!-- Custom scripts for this template -->
-    <script src="js/stylish-portfolio.min.js"></script>
 
-  </body>
+  <!--==========================
+    Pricing Table Section
+  ============================-->
 
+  <?php require_once 'web/progress.php'; ?>
+
+  <!--==========================
+    Blog Section
+  ============================-->
+  
+  <?php require_once 'web/last_post.php'; ?>
+
+<!--==========================
+    Screenshots Section
+  ============================-->
+
+  <?php require_once 'web/slide_foto.php'; ?>
+
+  <!--==========================
+    Video Section
+  ============================-->
+
+  <?php require_once 'web/video_youtube.php'; ?>
+
+
+  <!--==========================
+    Newsletter Section
+  ============================-->
+  <section id="newsletter" class="newsletter text-center wow fadeInUp">
+    <div class="overlay padd-section">
+      <div class="container">
+
+        <div class="row justify-content-center">
+          <div class="col-md-9 col-lg-6">
+            <form class="form-inline" method="POST" action="#">
+
+              <input type="email" class="form-control " placeholder="Email Adress" name="email">
+              <button type="submit" class="btn btn-default"><i class="fa fa-location-arrow"></i>Subscribe</button>
+
+            </form>
+
+          </div>
+        </div>
+
+          <ul class="list-unstyled">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!--==========================
+    Contact Section
+  ============================-->
+  <section id="contact" class="padd-section wow fadeInUp">
+
+    <div class="container">
+      <div class="section-title text-center">
+        <h2>Contact</h2>
+        <p class="separator">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque</p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row justify-content-center">
+
+        <div class="col-lg-3 col-md-4">
+
+          <div class="info">
+            <div>
+              <i class="fa fa-map-marker"></i>
+              <p>A108 Adam Street<br>New York, NY 535022</p>
+            </div>
+
+            <div class="email">
+              <i class="fa fa-envelope"></i>
+              <p>info@example.com</p>
+            </div>
+
+            <div>
+              <i class="fa fa-phone"></i>
+              <p>+1 5589 55488 55s</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+            <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+            <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+          </div>
+
+        </div>
+
+        <div class="col-lg-5 col-md-8">
+          <div class="form">
+            <div id="sendmessage">Your message has been sent. Thank you!</div>
+            <div id="errormessage"></div>
+            <form action="" method="post" role="form" class="contactForm">
+              <div class="form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+                <div class="validation"></div>
+              </div>
+              <div class="form-group">
+                <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+                <div class="validation"></div>
+              </div>
+              <div class="text-center"><button type="submit">Send Message</button></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- #contact -->
+
+  <!--==========================
+    Footer
+  ============================-->
+  
+  <?php require_once 'web/footer.php'; ?>
+
+
+
+  <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+  <!-- JavaScript Libraries -->
+  <!-- <script src="js/bootstrap.min.js"></script> -->
+  <!-- <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+  <script src="theme/lib/jquery/jquery.min.js"></script>
+  <script src="theme/lib/jquery/jquery-migrate.min.js"></script>
+  <script src="theme/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="theme/lib/superfish/hoverIntent.js"></script>
+  <script src="theme/lib/superfish/superfish.min.js"></script>
+  <script src="theme/lib/easing/easing.min.js"></script>
+  <script src="theme/lib/modal-video/js/modal-video.js"></script>
+  <script src="theme/lib/owlcarousel/owl.carousel.min.js"></script>
+  <script src="theme/lib/wow/wow.min.js"></script>
+  <!-- Contact Form JavaScript File -->
+  <script src="theme/contactform/contactform.js"></script>
+
+  <!-- Template Main Javascript File -->
+  <script src="theme/js/main.js"></script>
+
+</body>
 </html>

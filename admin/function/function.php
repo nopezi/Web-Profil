@@ -38,6 +38,17 @@ function tampilkan_posting(){
 	return $hasil;
 }
 
+function tampilkan_profil(){
+	global $koneksi;
+
+	$query = "SELECT * FROM pribadi";
+	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
+
+	return $hasil;
+}
+
+// TAMPIL EDIT
+
 function tampilkan_posting_edit($id_file){
 	global $koneksi;
 
@@ -47,7 +58,26 @@ function tampilkan_posting_edit($id_file){
 	return $hasil;
 }
 
+function tampilkan_profil_edit($id){
+	global $koneksi;
+
+	$query = "SELECT * FROM pribadi WHERE id='$id'";
+	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
+
+	return $hasil;
+}
+
 // EDIT DATA
+
+function edit_profil(
+    $id, $nama, $nama_depan, $nama_belakang, $tempat_lahir, $tanggal_lahir, $domisili, $detail, $status
+    ){
+    global $koneksi;
+
+    $query = "UPDATE pribadi SET nama_depan='$nama_depan', nama_belakang='$nama_belakang', tempat_lahir='$tempat_lahir', tanggal_lahir='$tanggal_lahir', domisili='$domisili', detail='$detail', status_kawin='$status', foto='$nama' WHERE id='$id'";
+
+    return run($query);
+}
 
 function edit_posting($id_file, $nama, $judul, $isi, $kategori){
     global $koneksi;

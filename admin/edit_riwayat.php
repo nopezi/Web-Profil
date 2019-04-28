@@ -12,7 +12,7 @@ $id = mysqli_real_escape_string($koneksi, $_GET['id']);
 $tampil_riwayat = tampilkan_riwayat_edit($id);
 // $posting = mysqli_query($koneksi, "select * from posting where id_file='$id'")or die(mysql_error());
 
-if($_POST['upload']){
+if(isset($_POST['upload'])){
     
     $id    = $_POST['id'];
     $tahun      = $_POST['tahun'];
@@ -22,10 +22,13 @@ if($_POST['upload']){
 
     if (empty($tahun) || empty(trim($keterangan)) || empty(trim($lokasi)) || empty($kategori)) {
         $error = "Isi data yang lengkap";
-    }else {
+    }else if(strtolower($kategori) == "pilihan"){
+        $error = "Kategori masih kosong";
+    } else {
         $edit_riwayat = edit_riwayat($id, $tahun, $keterangan, $lokasi, $kategori);
         if($edit_riwayat){
-            header("location: riwayat.php");            
+            // header("location: riwayat.php"); 
+            echo "<script>window.location.href='riwayat.php';</script>";           
         }else{
             $error = "Ada Masalah edit data";
         }
