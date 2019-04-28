@@ -18,6 +18,24 @@ function tampilkan_project(){
 	return $hasil;
 }
 
+function tampilkan_artikel(){
+	global $koneksi;
+
+	$query = "SELECT * FROM posting WHERE kategori='artikel'";
+	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
+
+	return $hasil;
+}
+
+function tampilkan_project_detail($id_file){
+	global $koneksi;
+
+	$query = "SELECT * FROM posting WHERE kategori='project' && id_file='$id_file'";
+	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
+
+	return $hasil;
+}
+
 function tampilkan_profil(){ // NAMPILIN PROFIL
 	global $koneksi;
 

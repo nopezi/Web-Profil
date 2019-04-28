@@ -1,7 +1,7 @@
 <?php 
 require_once "core/init.php"; 
 
-$artikel = tampilkan_artikel();
+$project = tampilkan_project();
 
 ?>
 
@@ -10,7 +10,7 @@ $artikel = tampilkan_artikel();
     <div class="container">
       <div class="section-title text-center">
 
-        <h2>Latest Articel</h2>
+        <h2>Latest Project</h2>
         <!-- <p class="separator">Integer cursus bibendum augue ac cursus .</p> -->
 
       </div>
@@ -19,7 +19,7 @@ $artikel = tampilkan_artikel();
     <div class="container">
       <div class="row">
 
-<?php while($p = mysqli_fetch_assoc($artikel)){ ?>
+<?php while($p = mysqli_fetch_assoc($project)){ ?>
 
         <div class="col-md-6 col-lg-4">
           <div class="block-blog text-left">

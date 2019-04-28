@@ -9,12 +9,12 @@
 
       <nav id="nav-menu-container">
         <ul class="nav-menu">
-          <li class="menu-active"><a href="#hero">Home</a></li>
-          <li><a href="#about-us">About</a></li>
-          <li><a href="#features">Biography</a></li>
-          <li><a href="#screenshots">Gallery Project</a></li>
-          <li><a href="#video">video</a></li>
-          <li><a href="#pricing">Skill</a></li>
+          <li class="menu-active"><a href="index.php#hero">Home</a></li>
+          <li><a href="index.php#about-us">About</a></li>
+          <li><a href="index.php#features">Biography</a></li>
+          <li><a href="index.php#screenshots">Gallery Project</a></li>
+          <li><a href="index.php#video">video</a></li>
+          <li><a href="index.php#pricing">Skill</a></li>
           <!-- <li class="menu-has-children"><a href="">Drop Down</a>
             <ul>
               <li><a href="#">Drop Down 1</a></li>
@@ -23,8 +23,9 @@
               <li><a href="#">Drop Down 5</a></li>
             </ul>
           </li> -->
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.php#blog">Project</a></li>
+          <li><a href="index.php#blog2">Article</a></li>
+          <li><a href="index.php#contact">Contact</a></li>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
