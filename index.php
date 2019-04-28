@@ -91,13 +91,11 @@ give gallery's parent container a cursor: pointer.**/
   <!-- #header -->
 <?php 
 require_once "core/init.php"; 
-$id_file = mysqli_real_escape_string($koneksi, $_GET['id_file']);
-$project_detail = tampilkan_project_detail($id_file);
-if(!empty($id_file)){
 
-  
-   require_once 'web/single_project.php'; //HALAMAN SINGLE PROJECT
-
+if(!empty($_GET['id_file'])){
+  $id_file = mysqli_real_escape_string($koneksi, $_GET['id_file']);
+  $project_detail = tampilkan_project_detail($id_file);
+  require_once 'web/single_project.php'; //HALAMAN SINGLE PROJECT
 }else{
 ?>
   <!--==========================
@@ -137,7 +135,7 @@ if(!empty($id_file)){
     </div>
 
     <div class="container">
-      <div class="row row-table">
+      <div class="row">
 <!-- RIWAYAT SEKOLAH -->   
 <?php require_once 'web/riwayat_sekolah.php'; ?>
 <!-- RIWAYAT ORGANISASI -->
@@ -146,7 +144,7 @@ if(!empty($id_file)){
     </div>
 
     <div class="container">
-      <div class="row row-table">
+      <div class="row">
 <!-- RIWAYAT PRESTASI -->
 <?php require_once 'web/riwayat_prestasi.php'; ?>
 <!-- RIWAYAT PEKERJAAN -->

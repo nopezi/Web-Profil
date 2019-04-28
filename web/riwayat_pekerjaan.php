@@ -9,8 +9,8 @@ $pekerjaan = tampilkan_pekerjaan();
 
 ?>
 
-<div class="col-md-6 col-lg-6 col-table">
-    <div class="col-content feature-block">
+<div class="col-md-6 col-lg-6">
+    <div class="feature-block">
         
             <img src="theme/img/svg/code.svg" alt="img" class="img-fluid">
             <h4>work experience</h4>

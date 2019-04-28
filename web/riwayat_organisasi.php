@@ -9,8 +9,8 @@ $organisasi = tampilkan_organisasi();
 
 ?>
 
-<div class="col-md-6 col-lg-6 col-table">
-    <div class="col-content feature-block">
+<div class="col-md-6 col-lg-6">
+    <div class="feature-block">
         
             <img src="theme/img/svg/asteroid.svg" alt="img" class="img-fluid">
             <h4>Organization</h4>
