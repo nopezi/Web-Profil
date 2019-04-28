@@ -27,7 +27,7 @@ $pekerjaan = tampilkan_pekerjaan();
             
                 <div class="panel-collapse collapse" id="pekerjaan<?=$row['id']?>">
                     <div class="panel-body">
-                        <p>, <?=$row['lokasi']?>, <?=$row['tahun']?></p>
+                        <p><?=$row['lokasi']?>, <?=$row['tahun']?></p>
                     </div>
                 </div>
             </div>

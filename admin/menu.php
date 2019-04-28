@@ -11,6 +11,9 @@
                         <a href="posting.php" class="waves-effect"><i class="glyphicon glyphicon-book"></i> Posting</a>
                     </li>
                     <li>
+                        <a href="riwayat.php" class="waves-effect"><i class="glyphicon glyphicon-education"></i> Riwayat Hidup</a>
+                    </li>
+                    <li>
                         <a href="kategori.php" class="waves-effect"><i class="glyphicon glyphicon-knight"></i> Kategori</a>
                     </li>
                     <li>

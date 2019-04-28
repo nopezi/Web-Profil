@@ -1,6 +1,6 @@
 
 		<?php 
-		include '../blog/koneksi.php';
+		// include '../blog/koneksi.php';
 		if($_POST['upload']){
 			$ekstensi_diperbolehkan	= array('png','jpg');
 			$id_file = $_POST['id_file'];
@@ -13,23 +13,23 @@
 			$isi = $_POST['isi'];
 			$kategori = $_POST['kategori'];	
  
-			if ($nama == "" || $judul == "" || $isi == "" || $kategori == "") {
-				echo '<script> language="javascript">alert("ISI DATA YANG LENGKAP"); document.location="edit_posting.php?id_file='.$id_file .'";</script>';
+			if (empty($nama) || empty(trim($judul)) || empty(trim($isi)) || empty($kategori)) {
+				$error = "Isi data yang lengkap";
 			}else {
 				if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
 				if($ukuran < 104407000){			
 					move_uploaded_file($file_tmp, 'file/'.$nama);
 					$query = mysqli_query($koneksi, "UPDATE posting SET nama_file='$nama', judul='$judul', isi='$isi', kategori='$kategori' WHERE id_file='$id_file'");
 					if($query){
-						echo '<script> language="javascript">alert("FILE BERHASIL DI EDIT"); document.location="posting.php";</script>';
+						header("location: posting.php");
 					}else{
-						echo 'GAGAL MENGUPLOAD GAMBAR';
+						$error = "Gagal mengupload gambar";
 					}
 				}else{
-					echo 'UKURAN FILE TERLALU BESAR';
+					$error = "Ukuran file terlalu besar";
 				}
 			}else{
-				echo '<script> language="javascript">alert("EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN"); document.location="tambah_posting.php";</script>';
+				$error = "EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN";
 			}
 			}
 		}

@@ -9,10 +9,19 @@ function tampilkan(){
 	return $hasil;
 }
 
+function tampilkan_project(){
+	global $koneksi;
+
+	$query = "SELECT * FROM posting WHERE kategori='project'";
+	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
+
+	return $hasil;
+}
+
 function tampilkan_profil(){ // NAMPILIN PROFIL
 	global $koneksi;
 
-	$query = "SELECT * FROM posting WHERE kategori='profil'";
+	$query = "SELECT * FROM pribadi";
 	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
 
 	return $hasil;
@@ -71,6 +80,8 @@ function tampilkan_per_kategori($kategori){
 
 	return $hasil;
 }
+
+
 
  ?>
 

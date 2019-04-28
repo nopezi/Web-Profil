@@ -8,41 +8,27 @@ $id = $_SESSION['admin'];
 $profil = mysqli_query($koneksi, "select * from admin where id_admin=$id");
 
 require_once 'header.php'; 
-
-$id_file = mysqli_real_escape_string($koneksi, $_GET['id_file']);
-$tampil_posting = tampilkan_posting_edit($id_file);
+$id = mysqli_real_escape_string($koneksi, $_GET['id']);
+$tampil_riwayat = tampilkan_riwayat_edit($id);
 // $posting = mysqli_query($koneksi, "select * from posting where id_file='$id'")or die(mysql_error());
 
 if($_POST['upload']){
-    $ekstensi_diperbolehkan	= array('png','jpg');
-    $id_file = $_POST['id_file'];
-    $nama = $_FILES['file']['name'];
-    $x = explode('.', $nama);
-    $ekstensi = strtolower(end($x));
-    $ukuran	= $_FILES['file']['size'];
-    $file_tmp = $_FILES['file']['tmp_name'];
-    $judul = $_POST['judul'];
-    $isi = $_POST['isi'];
-    $kategori = $_POST['kategori'];	
+    
+    $id    = $_POST['id'];
+    $tahun      = $_POST['tahun'];
+    $keterangan = $_POST['keterangan'];
+    $lokasi     = $_POST['lokasi'];	
+    $kategori   = $_POST['kategori'];
 
-    if (empty($nama) || empty(trim($judul)) || empty(trim($isi)) || empty($kategori)) {
+    if (empty($tahun) || empty(trim($keterangan)) || empty(trim($lokasi)) || empty($kategori)) {
         $error = "Isi data yang lengkap";
     }else {
-        if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
-        if($ukuran < 104407000){			
-            move_uploaded_file($file_tmp, 'file/'.$nama);
-            $edit_posting = edit_posting($id_file, $nama, $judul, $isi, $kategori);
-            if($edit_posting){
-                header("location: posting.php");            
-            }else{
-                $error = "Gagal mengupload gambar";
-            }
+        $edit_riwayat = edit_riwayat($id, $tahun, $keterangan, $lokasi, $kategori);
+        if($edit_riwayat){
+            header("location: riwayat.php");            
         }else{
-            $error = "Ukuran file terlalu besar";
+            $error = "Ada Masalah edit data";
         }
-    }else{
-        $error = "EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN";
-    }
     }
 }
 
@@ -61,17 +47,19 @@ if($_POST['upload']){
         <!-- ============================================================== -->
 <div id="page-wrapper">
 
-<?php  while($d=mysqli_fetch_array($tampil_posting)){ ?>
+<?php  while($d=mysqli_fetch_array($tampil_riwayat)){ ?>
 
     <div class="container-fluid">
         <div class="row bg-title">
             <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                <h4 class="page-title">Postingan</h4> 
+                <a href="riwayat.php" class="btn btn-info"><i class="glyphicon glyphicon-step-backward"></i></a>
+                
             </div>
             <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         
                 <ol class="breadcrumb">
-                    <li><a href="#">Postingan</a></li>
+                    <h4 class="page-title">Edit Riwayat</h4> 
+                    <!-- <li><a href="#">Edit Riwayat</a></li> -->
                 </ol>
             </div>
                     <!-- /.col-lg-12 -->
@@ -91,16 +79,22 @@ if($_POST['upload']){
 
                 <form action="" class="form-horizontal form-material" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="hidden" name="id_file" value="<?=$d['id_file']?>">
-                                    <label class="col-md-12">Judul</label>
+                                    <input type="hidden" name="id" value="<?=$d['id']?>">
+                                    <label class="col-md-12">Tahun</label>
                                     <div class="col-md-12">
-                                        <input type="text" name="judul" class="form-control form-control-line" value="<?=$d['judul']?>">
+                                        <input type="text" name="tahun" class="form-control form-control-line" value="<?=$d['tahun']?>">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label class="col-md-12">Isi</label>
+                                    <label class="col-md-12">Lokasi</label>
                                     <div class="col-md-12">
-                                        <textarea rows="5" id="ckeditor" class="ckeditor form-control form-control-line" name="isi"><?=$d['isi']?></textarea>
+                                        <input type="text" name="lokasi" class="form-control form-control-line" value="<?=$d['lokasi']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-12">Keterangan</label>
+                                    <div class="col-md-12">
+                                        <textarea rows="5" id="ckeditor" class="ckeditor form-control form-control-line" name="keterangan"><?=$d['keterangan']?></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -108,17 +102,11 @@ if($_POST['upload']){
                                     <div class="col-sm-2">
                                         <select name="kategori" class="form-control form-control-line">
                                             <option>Pilihan</option>
-                                            <option value="Artikel">Artikel</option>
-                                            <option value="Project">Project</option>
-                                            <option value="Profil">Profil</option>
+                                            <option value="pendidikan">Pendidikan</option>
+                                            <option value="organisasi">Organisasi</option>
+                                            <option value="pekerjaan">Pekerjaan</option>
+                                            <option value="prestasi">Prestasi</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <label class="col-sm-12"></label>
-                                    <div class="col-sm-6">
-                                        <input class="form-control" type="file" name="file">
-                                        <img src="file/<?=$d['nama_file']?>" class="img-responsive img-rounded" width="100px" height="100px">
                                     </div>
                                 </div>
                                 <div class="form-group">

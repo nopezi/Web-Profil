@@ -2,9 +2,44 @@
 
 @session_start();
 include '../blog/koneksi.php';
-if (@$_SESSION['admin']) {
-$id = $_SESSION['admin'];
+require_once 'function/function.php';
+
+if (@$_SESSION['admin']) { // filter halaman admin
+$id = $_SESSION['admin']; // jika admin
 $profil = mysqli_query($koneksi, "select * from admin where id_admin=$id");
+$kategori = tampilkan_kategori();
+
+if(isset($_POST['upload'])){ 
+    $ekstensi_diperbolehkan	= array('png','jpg');
+    $nama = $_FILES['file']['name'];
+    $x = explode('.', $nama);
+    $ekstensi = strtolower(end($x));
+    $ukuran	= $_FILES['file']['size'];
+    $file_tmp = $_FILES['file']['tmp_name'];
+    $judul = $_POST['judul'];
+    $isi = $_POST['isi'];
+    $kategori = $_POST['kategori'];	
+
+    if (empty($nama) || empty(trim($judul)) || empty(trim($isi)) || empty($kategori)) { // validasi jika ada data yang kosong
+        $error = "Isi data yang lengkap";
+    }else {
+        if(in_array($ekstensi, $ekstensi_diperbolehkan) === true){
+            if($ukuran < 104407000){			
+                move_uploaded_file($file_tmp, 'file/'.$nama);
+                $tambah_data_posting = tambah_data_posting($nama, $judul, $isi, $kategori);
+                if($tambah_data_posting){
+                    header("location: posting.php");
+                }else{
+                    $error = "Gagal mengupload gambar";
+                }
+            }else{
+                $error = "Ukuran file terlalu besar";
+            }
+        }else{
+            $error = "EKSTENSI FILE YANG DI UPLOAD TIDAK DI PERBOLEHKAN";
+        }
+    }
+}
 
 require_once 'header.php'; 
 
@@ -39,8 +74,16 @@ require_once 'header.php';
     <div class="row">
         <div class="col-md-12">
             <div class="white-box">
-                
-                <form action="aksi_tambah_posting.php" class="form-horizontal form-material" method="post" enctype="multipart/form-data">
+
+            <?php if(!empty($error)){ ?>   
+                <div class="alert alert-danger" role="alert">
+                    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                    <span class="sr-only">Error:</span>
+                    <?=$error?>
+                </div>
+             <?php } ?>
+
+                <form action="" class="form-horizontal form-material" method="post" enctype="multipart/form-data">
                                 <div class="form-group">
                                     <label class="col-md-12">Judul</label>
                                     <div class="col-md-12">
@@ -58,8 +101,9 @@ require_once 'header.php';
                                     <div class="col-sm-2">
                                         <select name="kategori" class="form-control form-control-line">
                                             <option>Pilihan</option>
-                                            <option value="Artikel">Artikel</option>
-                                            <option value="Project">Project</option>
+                                            <?php while($k = mysqli_fetch_assoc($kategori)){ ?>
+                                            <option value="<?=$k['kategori']?>"><?=$k['kategori']?></option>
+                                            <?php } ?>
                                         </select>
                                     </div>
                                 </div>
