@@ -8,7 +8,7 @@
   <meta content="" name="description">
 
   <!-- Favicons -->
-  <link href="gambar/logo.PNG" rel="icon">
+  <link href="gambar/logo.png" rel="icon">
   <link href="theme/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -19,7 +19,7 @@
   <!-- <link href="theme/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   
   <!-- Libraries CSS Files -->
-  <link href="css/bootstrap.css" rel="stylesheet" id="bootstrap-css">
+  <link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
   <!-- <link href="theme/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
   <link rel="stylesheet" href="theme/css/style_progress.css">
   

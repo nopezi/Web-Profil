@@ -23,11 +23,11 @@ $profil = tampilkan_profil();
             <h4>About Me</h4>
             <ul class="list-unstyled">
 
-              <li><i class="fa fa-angle-right"></i>Iam <?=$p['status_kawin']?></li>
-              <li><i class="fa fa-angle-right"></i>Born in <?=$p['tempat_lahir']?></li>
-              <li><i class="fa fa-angle-right"></i>On <?=$p['tanggal_lahir']?></li>
-              <li><i class="fa fa-angle-right"></i><?=$p['hobi']?> its my hobby</li>
-              <li><i class="fa fa-angle-right"></i>and now live in <?=$p['domisili']?></li>
+              <li><i class="glyphicon glyphicon-menu-right"></i> Iam <?=$p['status_kawin']?></li>
+              <li><i class="glyphicon glyphicon-menu-right"></i> Born in <?=$p['tempat_lahir']?></li>
+              <li><i class="glyphicon glyphicon-menu-right"></i> On <?=$p['tanggal_lahir']?></li>
+              <li><i class="glyphicon glyphicon-menu-right"></i> <?=$p['hobi']?> its my hobby</li>
+              <li><i class="glyphicon glyphicon-menu-right"></i> and now live in <?=$p['domisili']?></li>
             </ul>
 <?php } ?>
           </div>
