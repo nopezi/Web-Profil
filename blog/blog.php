@@ -30,7 +30,7 @@ function tampilkan_artikel(){
 function tampilkan_project_detail($id_file){
 	global $koneksi;
 
-	$query = "SELECT * FROM posting WHERE kategori='project' && id_file='$id_file'";
+	$query = "SELECT * FROM posting WHERE id_file='$id_file'";
 	$hasil = mysqli_query($koneksi, $query)or die(mysqli_error());
 
 	return $hasil;

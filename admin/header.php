@@ -29,7 +29,7 @@
     <link rel="stylesheet" type="text/css" href="css/dataTables.bootstrap.min.css">
 
     <!-- Custom styles for this template -->
-    <link href="navbar.css" rel="stylesheet">
+    <!-- <link href="navbar.css" rel="stylesheet"> -->
     
     <script src="//cdn.ckeditor.com/4.10.0/full/ckeditor.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>

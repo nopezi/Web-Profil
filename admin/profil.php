@@ -96,17 +96,18 @@ if(isset($_POST['upload'])){
         <div class="col-md-12">
             <div class="white-box">
             
-                <?php if(!empty($error)){ ?>   
-                    <div class="alert alert-danger" role="alert">
-                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                        <span class="sr-only">Error:</span>
-                        <?=$error?>
-                    </div>
-                <?php }else{ ?>
+                <?php if(!empty($edit_profil)){ ?>
                     <div class="alert alert-success" role="alert">
                         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                         <span class="sr-only">Well done:</span>
                         <?=$sukses?>
+                    </div>
+                    
+                <?php }else if(!empty($error)){ ?>
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        <?=$error?>
                     </div>
                 <?php } ?>
                 <form action="" class="form-horizontal form-material" method="post" enctype="multipart/form-data">
